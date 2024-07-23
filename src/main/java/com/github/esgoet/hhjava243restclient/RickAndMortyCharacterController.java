@@ -3,7 +3,9 @@ package com.github.esgoet.hhjava243restclient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/characters")
@@ -13,10 +15,11 @@ public class RickAndMortyCharacterController {
 
     @GetMapping
     public List<RickAndMortyCharacter> getAllCharacters(@RequestParam(value = "status", required = false) String status) {
-        if (status == null) {
-            return rickAndMortyApiService.loadAllCharacters();
+        Map<String, String> params = new HashMap<>();
+        if (status != null) {
+            params.put("status", status);
         }
-        return rickAndMortyApiService.loadCharactersWithStatus(status);
+        return rickAndMortyApiService.loadAllCharacters(params);
     }
 
     @GetMapping("/{id}")
