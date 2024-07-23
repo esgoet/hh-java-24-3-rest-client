@@ -1,5 +1,6 @@
-package com.github.esgoet.hhjava243restclient;
+package com.github.esgoet.hhjava243restclient.characters;
 
+import com.github.esgoet.hhjava243restclient.api.RickAndMortyApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

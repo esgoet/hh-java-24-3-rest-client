@@ -1,4 +1,4 @@
-package com.github.esgoet.hhjava243restclient;
+package com.github.esgoet.hhjava243restclient.characters;
 
 public record RickAndMortyCharacter(
         int id,

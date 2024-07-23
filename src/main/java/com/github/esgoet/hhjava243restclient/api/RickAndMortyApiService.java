@@ -1,5 +1,6 @@
-package com.github.esgoet.hhjava243restclient;
+package com.github.esgoet.hhjava243restclient.api;
 
+import com.github.esgoet.hhjava243restclient.characters.RickAndMortyCharacter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -31,6 +32,14 @@ public class RickAndMortyApiService {
                 .uri("/character/" + id)
                 .retrieve()
                 .body(RickAndMortyCharacter.class);
+    }
+
+    public int loadSpeciesCount(String species) {
+        RickAndMortyApiResponse response = restClient.get()
+                .uri("/character?status=alive&species="+ species)
+                .retrieve()
+                .body(RickAndMortyApiResponse.class);
+        return response.info().count();
     }
 
 }
